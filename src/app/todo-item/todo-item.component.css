@@ -1,0 +1,13 @@
+.todo-item {
+    
+    font-size: 20px;
+    align-items: center;
+    cursor: pointer;
+    
+
+}
+.todo-item .check-box {
+    margin-right: 20px;
+    height: 30px;
+    width: 30px;
+}

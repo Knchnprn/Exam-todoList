@@ -1,0 +1,44 @@
+<div >
+  <h1 class="todo-header text-center">Todo List</h1>
+
+  <div class="container add-todo justify-content-center border border-3 ">
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)" class="row g-2">
+      <h5 class=" text-center">Add New todo</h5>
+      <div class="col-1"></div>
+      <div class="col-9">
+        <input ngModel #todoTextField="ngModel" required name="text" class="form-control" type="text"
+          placeholder="Things you want to do ?"></div>
+        <div class="col-1">
+
+          <button type="submit" class="btn btn-success "><i class="bi bi-plus-lg"></i> Add</button>
+        </div>
+        <div></div>
+      <div *ngIf="todoTextField.invalid && showValidationErrors">
+        <p class="help text-danger" *ngIf="todoTextField.errors?.['required']">Please enter the text of your todo</p>
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <div class="container col-8 p-2 ">
+    
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="todo-list">
+
+        <app-todo-item *ngFor="let todo of todoList" 
+                      [todoItem]='todo' 
+                      (todoClicked)="toggleCompleted(todo)"
+                      (editClicked)="editTodo(todo)"
+                      (deleteClicked)="deleteTodo(todo)"
+        
+        ></app-todo-item>
+
+      </div>
+    </div>
+  </div>
+
+</div>
